@@ -1,0 +1,34 @@
+.contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.centrar{
+    width: 20%;
+    background-color: rgb(193 255 255);
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 3px 3px 2px 2px black;
+}
+
+
+@media screen and (max-width:992px){
+    .centrar{
+        width: 50%;
+    }
+}
+@media screen and (max-width:768px){
+    .centrar{
+        width: 50%;
+    }
+}
+@media screen and (max-width:576px){
+    .centrar{
+    width: 90%;
+    }
+} 
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/login.css">
+    
+</head>
+<body>
+<div class="contenedor">
+  <div class="centrar p-3">
+      <form class="row g-3 needs-validation">
+          <h2 class="text-center my-3 fw-semibold">CREAR CUENTA</h2>
+        <div class="col-12">
+          <input placeholder="Ingresa tu email" type="email" class="form-control" id="email" required>
+          <div id="emailHelpBlock" class="form-text text-danger" style="display: none;">
+            Debes ingresar una estructura de email valido
+          </div>
+        </div>
+        <div class="col-12">
+          <input placeholder="Ingresa tu contraseña" type="password" class="form-control" id="password" required>
+          <div id="passHelpBlock" class="form-text text-danger" style="display: none;">
+            Debes ingresar al menos 8 caracteres
+          </div>
+        </div>
+        <div class="col-12">
+          <input placeholder="Comprueba tu contraseña" type="password" class="form-control" id="confirmPassword" required>
+          <div id="confirmPassHelpBlock" class="form-text text-danger" style="display: none;">
+            Debes ingresar al menos 8 caracteres
+          </div>
+        </div>
+        <div class="form-check" id="divRemember" style="display: none;">
+          <div style="width: auto; float: right;">
+              <input class="form-check-input" type="checkbox" id="rememberUser">
+              <label class="form-check-label " for="rememberUser">
+                Recordarme
+              </label>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-sm-12 col-md-8 mx-auto mt-3">
+          <button class="btn btn-primary" id="createAccount" type="submit">Crear Cuenta</button>
+        </div>
+        <a id="forgotPass" href="forgot-password.html" class="text-center">¿Olvidaste tu contraseña?</a>
+        <hr>
+      </form>
+      <div class="d-grid gap-2 col-sm-10 col-md-7 mx-auto mt-0">
+        <a href="new-account.html" class="btn btn-success" id="crearCuenta" type="buton">Crear cuenta nueva</a href="new-account.html">
+      </div>
+  </div>
+</div>
+</body>
+
+<script src="./js/new-account.js"></script>
+</html>

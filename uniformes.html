@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Posiciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .navbar1{
+        overflow: hidden;
+        background-color: black;
+    }
+    .item-navbar{
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 10px 15px;
+        text-decoration: none;
+    }
+    .navbar1 a:hover{
+        color:black !important;
+        background-color: white;
+    }
+    .icono{
+        display: block;
+    }
+/* .elemento-padre:hover .dropdown-menu {
+    display: block;
+} */
+@media screen and (max-width:576px) {
+    .navbar1 a{
+        width: 100%;
+    }
+    .elemento-padre:hover .dropdown-menu {
+        display: none;
+    }
+}
+.visible{
+    display: none;
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 65px;
+    width: 100%;
+}
+.padre-menu:hover .visible{
+    display: block;
+}
+.item-desplegable{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 12px;
+    overflow: hidden;
+}
+ol, ul {
+    padding-left: 0px !important;
+}
+.item-desplegable:hover{
+cursor: pointer;
+background-color: white;
+color: black;
+
+}
+.tabs{
+    cursor: pointer;
+}
+</style>
+<body>
+    <div class="navbar1">
+        <a href="home.html" id="home" class="item-navbar">
+            <i class="bi bi-house-fill icono" ></i>
+            Home
+        </a>
+        <a href="equipos.html" id="equipos" class="item-navbar">
+            <i class="bi bi-shield-fill-plus icono" ></i>
+            Equipos
+        </a>
+        <a class="item-navbar" href="jugadores.html">
+            <i class="bi bi-person-lines-fill icono"></i>
+            Jugadores
+        </a>
+        <a class="item-navbar" href="jornadas.html">
+            <i class="bi bi-calendar3 icono"></i>
+            Jornadas
+        </a>
+        <a class="item-navbar" href="posiciones.html">
+            <i class="bi bi-table icono"></i>
+            Posiciones
+        </a>
+        <a class="item-navbar" href="uniformes.html">
+            <i class="bi bi-shop icono"></i>
+            Jersys
+        </a>
+        <div class="elemento-padre">
+            <a class="item-navbar dropdown-toggle" id="perfil" href="#" style="float: right;" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                <i class="bi bi-person-circle icono"></i>
+                Perfil
+            </a>
+            <ul class="dropdown-menu text-center" id="perfil-dropdown" data-popper-escaped="" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 70px);">
+                <li><a class="dropdown-item" href="#">Mi Información <i class="bi bi-info-circle-fill"></i></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="login.html">Logout  <i class="bi bi-box-arrow-right"></i></a></li>
+            </ul>
+        </div>
+
+
+        
+    </div>
+
+    <div class="container border border-success-subtle p-3 mt-3 mb-3 rounded-2">
+        <h1 class="text-success text-center">UNIFORMES DE LOS EQUIPOS</h1>
+    </div>
+    <div class="container">
+        <div class="row my-5 " id="carrouselUniformes">
+            
+        </div>
+        <div class="d-grid gap-2 my-5">
+            <button class="btn btn-primary" id="mostrarMas" type="button">Mostrar Más</button>
+        </div>
+    </div>
+</body>
+<script>
+    
+    const CARROUSELITEM = document.getElementById('carrouselUniformes');
+    const BTNMAS = document.getElementById('mostrarMas');
+    var posInicial = 0;
+    var posicion = 3;
+    let equipos = [
+        {idTeam:136856, team:'Atletico de San Luis'},
+        {idTeam:134197, team:'Tigres'},
+        {idTeam:136855, team:'FC Juarez'},
+        {idTeam:134206, team:'CD Guadalajara'},
+        {idTeam:134204, team:'Toluca'},
+        {idTeam:134193, team:'CF America'},
+        {idTeam:134192, team:'Santos'},
+        {idTeam:134198, team:'Monterrey'},
+        {idTeam:134195, team:'Atlas'},
+        {idTeam:134201, team:'Pumas'},
+        {idTeam:134207, team:'Leon'},
+        {idTeam:134199, team:'Puebla'},
+        {idTeam:134194, team:'Queretaro FC'},
+        {idTeam:139995, team:'Mazatlán'},
+        {idTeam:134191, team:'Pachuca'},
+        {idTeam:134202, team:'Tijuana'},
+        {idTeam:134196, team:'Cruz Azul'},
+        {idTeam:135662, team:'Necaxa'}
+    ]
+    const NumeroEquipos = equipos.length;
+    BTNMAS.addEventListener('click',function(){
+        posicion+=3;
+        if( posicion >= NumeroEquipos){
+            posicion = NumeroEquipos;
+            BTNMAS.disabled = 'true';
+        }
+        mostrarImagenes(posicion);
+    })
+    function mostrarImagenes(posicion){
+        
+        for (let index = posInicial; index < posicion; index++) {
+            ItemsCarrousel(equipos[index].idTeam);
+        }
+        posInicial = posicion;
+    }
+    function ItemsCarrousel(idTeam){
+        var item = document.createElement('div');
+        item.classList.add('col-md-4');
+        let cadena = "";
+        let itemCarrousel = ""
+        let contador = 1;
+        obtenerDatos(idTeam).then( uniforme => {
+            
+            cadena = `
+                <div id="${idTeam}" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">`  
+                        uniforme.forEach(u => {
+                            if (contador == 1){
+                                itemCarrousel += `<div class="carousel-item active mt-2">`;
+                            }
+                            else{
+                                itemCarrousel += `<div class="carousel-item">`
+                            }
+                            
+                            itemCarrousel += `<img src="${u.strEquipment}" class="d-block w-100" alt="...">
+                            </div>`;
+                            contador++;
+                        });
+                    cadena += itemCarrousel;
+                    cadena += `</div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#${idTeam}" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#${idTeam}" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                    </div>`
+                    item.innerHTML = cadena;
+                    CARROUSELITEM.appendChild(item);
+        })
+
+    }
+    async function obtenerDatos(idTeam) {
+        try {
+            const resultado = await fetch(`https://www.thesportsdb.com/api/v1/json/3/lookupequipment.php?id=${idTeam}`);
+            if (!resultado.ok) {
+            throw new Error('La solicitud no fue exitosa');
+            }
+            const datos = await resultado.json();
+            return datos.equipment;
+        } catch (error) {
+            throw new Error('Ocurrio el siguiente error:', error);
+        }
+    }
+    
+    window.onload=function(){
+        mostrarImagenes(posicion);
+        // OMDb API
+// https://www.thesportsdb.com/api.php
+        // https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=Mexican%20Primera%20League
+
+    };
+</script>
+</html>
+

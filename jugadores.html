@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugadores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .navbar1{
+        overflow: hidden;
+        background-color: black;
+    }
+    .item-navbar{
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 10px 15px;
+        text-decoration: none;
+    }
+    .navbar1 a:hover{
+        color:black !important;
+        background-color: white;
+    }
+    .icono{
+        display: block;
+    }
+/* .elemento-padre:hover .dropdown-menu {
+    display: block;
+} */
+@media screen and (max-width:576px) {
+    .navbar1 a{
+        width: 100%;
+    }
+    .elemento-padre:hover .dropdown-menu {
+        display: none;
+    }
+}
+.visible{
+    display: none;
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 65px;
+    width: 100%;
+}
+.padre-menu:hover .visible{
+    display: block;
+}
+.item-desplegable{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 12px;
+    overflow: hidden;
+}
+ol, ul {
+    padding-left: 0px !important;
+}
+.item-desplegable:hover{
+cursor: pointer;
+background-color: white;
+color: black;
+
+}
+.tabs{
+    cursor: pointer;
+}
+</style>
+<body>
+    <div class="navbar1">
+        <a href="home.html" id="home" class="item-navbar">
+            <i class="bi bi-house-fill icono" ></i>
+            Home
+        </a>
+        <a href="equipos.html" id="equipos" class="item-navbar">
+            <i class="bi bi-shield-fill-plus icono" ></i>
+            Equipos
+        </a>
+        <a class="item-navbar" href="jugadores.html">
+            <i class="bi bi-person-lines-fill icono"></i>
+            Jugadores
+        </a>
+        <a class="item-navbar" href="jornadas.html">
+            <i class="bi bi-calendar3 icono"></i>
+            Jornadas
+        </a>
+        <a class="item-navbar" href="posiciones.html">
+            <i class="bi bi-table icono"></i>
+            Posiciones
+        </a>
+        <a class="item-navbar" href="uniformes.html">
+            <i class="bi bi-shop icono"></i>
+            Jersys
+        </a>
+        <div class="elemento-padre">
+            <a class="item-navbar dropdown-toggle" id="perfil" href="#" style="float: right;" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                <i class="bi bi-person-circle icono"></i>
+                Perfil
+            </a>
+            <ul class="dropdown-menu text-center" id="perfil-dropdown" data-popper-escaped="" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 70px);">
+                <li><a class="dropdown-item" href="#">Mi Información <i class="bi bi-info-circle-fill"></i></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="login.html">Logout  <i class="bi bi-box-arrow-right"></i></a></li>
+            </ul>
+        </div>
+
+
+        
+    </div>
+
+    <div class="container border border-success-subtle p-3 mt-3 mb-3 rounded-2">
+        <div class="row">
+            <h1 class="text-uppercase text-center text-success">JUGADORES POR EQuipo</h1>
+        </div>
+    </div>
+    <div class="container border border-danger-subtle p-3 mt-3 mb-3 rounded-2">
+        <div class="row">
+            <p>PROXIMAMENTE....</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae fuga, autem earum sint illum amet provident ipsam ad excepturi, saepe reiciendis minus iure quas id dolore cum, quod laborum iste!</p>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
