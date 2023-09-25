@@ -34,6 +34,22 @@
     .icono{
         display: block;
     }
+    #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(144, 144, 144, 0.5); /* Fondo semitransparente */
+    z-index: 999; /* Valor alto para estar encima de otros elementos */
+    display: none; /* Inicialmente oculto */
+    }
+    .centrar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
 /* .elemento-padre:hover .dropdown-menu {
     display: block;
 } */
@@ -75,8 +91,19 @@ color: black;
 .tabs{
     cursor: pointer;
 }
+.tabActivo{
+    background-color: white;
+    color: black;
+}
 </style>
 <body>
+    <div id="overlay">
+        <div class="centrar">
+            <div class="spinner-border text-primary"  style="width: 4rem; height: 4rem;" role="status">
+                <span class="visually-hidden" role="status">Loading...</span>
+            </div>
+        </div>
+    </div>
     <div class="navbar1">
         <a href="index.html" id="home" class="item-navbar">
             <i class="bi bi-house-fill icono" ></i>
@@ -98,7 +125,7 @@ color: black;
             <i class="bi bi-table icono"></i>
             Posiciones
         </a>
-        <a class="item-navbar" href="uniformes.html">
+        <a class="item-navbar tabActivo" href="uniformes.html">
             <i class="bi bi-shop icono"></i>
             Jersys
         </a>
@@ -171,6 +198,7 @@ color: black;
             ItemsCarrousel(equipos[index].idTeam);
         }
         posInicial = posicion;
+        
     }
     function ItemsCarrousel(idTeam){
         var item = document.createElement('div');
@@ -213,17 +241,28 @@ color: black;
     }
     async function obtenerDatos(idTeam) {
         try {
+            mostrarOverlay();
             const resultado = await fetch(`https://www.thesportsdb.com/api/v1/json/3/lookupequipment.php?id=${idTeam}`);
             if (!resultado.ok) {
             throw new Error('La solicitud no fue exitosa');
             }
             const datos = await resultado.json();
+            ocultarOverlay();
             return datos.equipment;
+            
         } catch (error) {
             throw new Error('Ocurrio el siguiente error:', error);
+            ocultarOverlay();
         }
     }
-    
+    function mostrarOverlay() {
+            document.getElementById("overlay").style.display = "block";
+            console.log("se esta mostrando el overlay")
+        }
+    // Para ocultar la capa de superposición y desbloquear la pantalla
+    function ocultarOverlay() {
+        document.getElementById("overlay").style.display = "none";
+    }
     window.onload=function(){
         mostrarImagenes(posicion);
         // OMDb API

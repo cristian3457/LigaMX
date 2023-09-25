@@ -75,8 +75,35 @@ color: black;
 .tabs{
     cursor: pointer;
 }
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(144, 144, 144, 0.5); /* Fondo semitransparente */
+    z-index: 999; /* Valor alto para estar encima de otros elementos */
+    display: none; /* Inicialmente oculto */
+    }
+.centrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.tabActivo{
+    background-color: white;
+    color: black;
+}
 </style>
 <body>
+    <div id="overlay">
+        <div class="centrar">
+            <div class="spinner-border text-primary"  style="width: 4rem; height: 4rem;" role="status">
+                <span class="visually-hidden" role="status">Loading...</span>
+            </div>
+        </div>
+    </div>
     <div class="navbar1">
         <a href="index.html" id="home" class="item-navbar">
             <i class="bi bi-house-fill icono" ></i>
@@ -90,7 +117,7 @@ color: black;
             <i class="bi bi-person-lines-fill icono"></i>
             Jugadores
         </a>
-        <a class="item-navbar" href="jornadas.html">
+        <a class="item-navbar tabActivo" href="jornadas.html">
             <i class="bi bi-calendar3 icono"></i>
             Jornadas
         </a>
@@ -191,6 +218,7 @@ color: black;
         }
     }
     function pintarTabla (numeroJornada = 1){
+        mostrarOverlay();
         CUERPOTABLA.innerHTML = '';
         const HEADERTABLA = document.getElementById('headerTabla');
         let contadorHeader = 0;
@@ -244,10 +272,17 @@ color: black;
                     }
                     CUERPOTABLA.appendChild(fila);
                 }
-                
+                ocultarOverlay();
             });
     }
-    
+    function mostrarOverlay() {
+            document.getElementById("overlay").style.display = "block";
+            console.log("se esta mostrando el overlay")
+        }
+    // Para ocultar la capa de superposición y desbloquear la pantalla
+    function ocultarOverlay() {
+        document.getElementById("overlay").style.display = "none";
+    }
     window.onload=function(){
         // OMDb API
 // https://www.thesportsdb.com/api.php
